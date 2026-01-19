@@ -1,0 +1,1030 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nothing+You+Could+Do&display=swap');
+
+:root {
+    --montserrat: "Montserrat", sans-serif;
+    --nycd: "Nothing You Could Do", sans-serif;
+}
+
+body {
+    margin: 0;
+  padding: 0;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    font-family: var(--montserrat);
+    height: 100%;
+}
+
+.cart-page {
+  padding: 1.75vw 2.25vw 0 0;
+}
+
+/* GRID */
+.cart-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 3vw;
+  align-items: start;
+}
+
+/* ================= HEADER ================= */
+
+.cart-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 2vw;
+  margin-left: 2.13vw;
+}
+
+.cart-title {
+  margin: 0;
+  font-size: 2.75vw; 
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cart-clear {
+  background: transparent;
+  border: none;
+  font-size: 1vw; 
+  color: #9B9B9B;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.cart-total {
+  font-size: 1vw;
+  color: #898989;
+  white-space: nowrap;
+  margin-left: auto; 
+}
+
+/* ================= DIVIDERS ================= */
+
+.cart-divider,
+.cart-footer-divider {
+  height: 0.0625vw; /* 1px */
+  background: #ededed;
+  margin-top: 1.125vw;
+}
+
+.cart-left {
+    height: 100vw;
+    width: 57.88vw;
+}
+
+/* ================= LIST ================= */
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= ITEM ================= */
+
+.cart-item{
+  display: block;
+  padding: 1.375vw 0;                 
+  border-bottom: 0.0625vw solid #CACACA; 
+}
+
+.cart-item-inner{
+  display: grid;
+  grid-template-columns: 6.875vw 1fr 2.125vw;
+  gap: 4.19vw;
+  padding-left: 2.13vw;
+}
+
+
+.item-img {
+  width: 8.81vw;   
+  height: 11.56vw;
+  object-fit: contain;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75vw;
+}
+
+.item-title {
+  margin: 0;
+  font-size: 1vw; /* ~14px */
+  font-weight: 500;
+}
+
+.item-price {
+  width: 11vw;
+  margin-top: 0vw;
+  font-size: 1.25vw;
+  color: #b8b8b8;
+}
+
+.item-bottom {
+  margin-top: 4vw;
+  display: flex;
+}
+
+.item-mid {
+  margin-top: 2.5vw;
+}
+
+.item-spec-wrap {
+  display: flex;
+  align-items: center;  
+  gap: 0.78vw;
+}
+
+
+.item-spec {
+  font-size: 1vw;
+  font-weight: 500;
+  padding-bottom: 0.625vw;
+
+  position: relative;
+  display: inline-block;
+  width: 24.19vw;
+}
+
+.item-spec::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.0625vw; 
+  background-color: #CFCFCF;
+}
+
+
+.item-action {
+  width: 1.69vw;          
+  height: 1.69vw;
+  border-radius: 50%;
+  border: 0.0625vw solid #111; 
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;         
+}
+
+.item-action img {
+  width: 0.8vw;           
+  height: 0.8vw;
+  display: block;
+}
+
+
+
+.item-remove {
+  width: 1.625vw;
+  height: 1.625vw;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 1vw;
+}
+
+.item-remove img {
+  width: 1.25vw;
+  height: 1.25vw;
+  display: block;
+}
+
+.item-remove:hover {
+  opacity: 1;
+}
+
+.item-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5vw;
+  margin-top: 0vw;
+  margin-left: 0vw;
+}
+
+.item-qty button {
+  width: 0;
+  height: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.13vw;
+  line-height: 1;
+  font-family: var(--montserrat);
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.item-qty span {
+  min-width: 1.4vw;
+  text-align: center;
+  font-size: 1vw;
+}
+
+/* ================= RIGHT ================= */
+
+.cart-right {
+  padding-top: 1.2vw;
+  position: sticky;
+  top: 1.75vw;       /* отступ сверху — под шапку/воздух */
+  align-self: start;
+}
+
+.right-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+
+.right-title {
+  margin: 0;
+  font-size: 1.5vw; 
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.pay-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8125vw; /* ~13px */
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+/* базовая кнопка как кнопка */
+.pay-btn.pay-anim {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  /* чтобы не схлопывалось и не прыгало */
+  line-height: 1;
+}
+
+/* hover анимации стрелок */
+.pay-btn.pay-anim:hover .pay-arrow-1 {
+  transform: translate(120%, -120%);
+  opacity: 0;
+}
+
+.pay-btn.pay-anim:hover .pay-arrow-2 {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.pay-btn.pay-anim:hover .pay-text {
+  transform: translateX(0);
+}
+
+/* "выезжающий" текст слева */
+.pay-text-wrap {
+  display: inline-flex;
+  position: absolute;
+  right: calc(100% - 0.8vw); /* как у тебя */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pay-text {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.25vw 1.7vw 0.25vw 0.7vw;
+  background: #FFFFFF;
+  border: 1px solid #2D2D2D;
+  border-radius: 2vw 0 0 2vw;
+  font-family: var(--montserrat);
+  font-size: 1vw;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 114.2%;
+  color: #020202;
+
+  transform: translateX(100%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* круг справа */
+.pay-circle {
+  width: 1.69vw;
+  height: 1.69vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #2D2D2D;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+/* стрелки внутри круга */
+.pay-circle .pay-arrow {
+  position: absolute;
+  width: 0.7vw;
+  height: auto;
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+.pay-arrow-1 {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.pay-arrow-2 {
+  transform: translate(-120%, 120%);
+  opacity: 0;
+}
+
+/* accessibility: фокус */
+.pay-btn.pay-anim:focus-visible {
+  outline: 0.125vw solid rgba(0,0,0,0.35);
+  outline-offset: 0.25vw;
+  border-radius: 2vw;
+}
+
+
+.pay-icon {
+  width: 0.8vw;
+  height: 0.8vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+/* ================= BLOCKS ================= */
+
+.right-block {
+  margin-top: 1.25vw;
+}
+
+.right-subtitle {
+  font-size: 1vw;
+  font-weight: 500;
+  margin-bottom: 0.75vw;
+  letter-spacing: -0.02em;
+}
+
+/* ================= TABS ================= */
+
+.tabs {
+  display: flex;
+  gap: 1.125vw;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.88vw;
+  color: #727272;
+  padding: 0.375vw 0;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  transition: color 0.22s ease;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2vw;             
+  width: 100%;
+  height: 0.0625vw;            
+  background: currentColor;    
+
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+
+  /* "появление слева направо + тягучесть в конце" */
+  transition:
+    transform 600ms cubic-bezier(0.22, 1.35, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.tab.is-active {
+  color: #000000;
+}
+
+/* активная линия */
+.tab.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* hover — можно очень мягко подсказать */
+.tab:hover {
+  color: #111111;
+}
+
+
+/* ================= FIELDS ================= */
+
+.field {
+  position: relative;
+  display: block;
+  margin-top: 0.9vw;
+  --field-w: clamp(240px, 22vw, 340px);
+  --line-h: 0.0625vw; 
+  --line: #ededed;
+}
+
+.field-input,
+.field-textarea {
+  width: 20vw;
+  border: none;
+  outline: none;
+
+  padding: 0.95vw 0 0.75vw 0.44vw;
+  font-family: var(--montserrat);
+  font-size: 0.88vw;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #CACACA 0%,
+    #CACACA 82%,
+    rgba(237, 237, 237, 0) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% var(--line-h);
+  background-position: left bottom;
+}
+
+.field-textarea {
+  resize: none;                 /* нельзя менять размер */
+  padding: 0.95vw 0 0.75vw;     /* ТОЧНО как у input */
+  min-height: unset;
+  line-height: 38%;     
+}
+
+/* Текст-подпись внутри поля (как placeholder), но управляемый */
+.field-label {
+  padding-left: 0.44vw;
+  position: absolute;
+  left: 0;
+  top: 0.95vw;
+  font-size: 0.75vw;
+  color: #727272;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 160ms ease;
+  font-weight: 300;
+}
+
+/* Показываем подпись, только когда поле пустое */
+.field-input:placeholder-shown + .field-label,
+.field-textarea:placeholder-shown + .field-label {
+  opacity: 1;
+}
+
+/* Если пользователь печатает — подпись исчезает  */
+.field-input:not(:placeholder-shown) + .field-label,
+.field-textarea:not(:placeholder-shown) + .field-label {
+  opacity: 0;
+}
+
+
+
+@media (max-width: 440px) {
+.cart-page {
+  padding: 1.75vw 2.25vw 0 0;
+  margin-bottom: 35vw;
+}
+
+/* GRID */
+.cart-grid {
+  display: flex;
+        flex-direction: column;
+        grid-template-columns: 1.8fr 1fr;
+        gap: 12.05vw;
+        align-items: start;
+}
+
+/* ================= HEADER ================= */
+
+.cart-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2vw;
+  margin-left: 2.13vw;
+  margin-bottom: 3.44vw;
+}
+
+.cart-title {
+  margin: 0;
+  font-size: 5.45vw; 
+  font-weight: 500;
+  line-height: 1;
+}
+
+.cart-clear {
+  background: transparent;
+  border: none;
+  font-size: 3.64vw; 
+  color: #9B9B9B;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.cart-total {
+  display: none;
+  font-size: 1vw;
+  color: #898989;
+  white-space: nowrap;
+  margin-left: auto; 
+}
+
+/* ================= DIVIDERS ================= */
+
+.cart-divider,
+.cart-footer-divider {
+  height: 0.0625vw; /* 1px */
+  background: #ededed;
+  margin-top: 1.125vw;
+}
+
+.cart-left {
+    height: 100%;
+    width: 100%;
+}
+
+/* ================= LIST ================= */
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= ITEM ================= */
+
+.cart-item{
+  display: block;
+  padding: 3.64vw 0;                 
+  border-bottom: 0.0625vw solid #CACACA; 
+}
+
+.cart-item-inner{
+  display: grid;
+  grid-template-columns: 27.05vw 1fr 4.32vw;
+  gap: 8.18vw;
+  padding-left: 2.13vw;
+}
+
+
+.item-img {
+  width: 27.05vw;
+        height: 35.45vw;
+        object-fit: contain;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75vw;
+}
+
+.item-title {
+  margin: 0;
+  font-size: 2.95vw;
+  font-weight: 500;
+}
+
+.item-price {
+  width: 30vw;
+  margin-top: 0vw;
+  font-size: 4.55vw;
+  color: #b8b8b8;
+}
+
+.item-bottom {
+  margin-top: 4vw;
+        display: flex;
+        justify-content: space-between;
+}
+
+.item-mid {
+  margin-top: 6.2vw;
+}
+
+.item-spec-wrap {
+  display: flex;
+  align-items: center;  
+  gap: 0.78vw;
+}
+
+
+.item-spec {
+  font-size: 2.5vw;
+  font-weight: 500;
+  padding-bottom: 0.625vw;
+
+  position: relative;
+  display: inline-block;
+  width: 45vw;
+}
+
+.item-spec::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.0625vw; 
+  background-color: #CFCFCF;
+}
+
+
+.item-action {
+  width: 6.14vw;          
+  height: 6.14vw;
+  border-radius: 50%;
+  border: 0.0625vw solid #111; 
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;         
+}
+
+.item-action img {
+  width: 2.89vw;           
+  height: 2.89vw;
+  display: block;
+}
+
+
+
+.item-remove {
+  width: 4.32vw;
+  height: 4.32vw;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 1vw;
+  transform: translateX(-8vw);
+}
+
+.item-remove img {
+  width: 4.32vw;
+  height: 4.32vw;
+  display: block;
+}
+
+.item-remove:hover {
+  opacity: 1;
+}
+
+.item-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 2vw;
+  margin-top: 0vw;
+  margin-left: 3.25vw;
+}
+
+.item-qty button {
+  width: 0;
+  height: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 4.09vw;
+  line-height: 1;
+  font-family: var(--montserrat);
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.item-qty span {
+  width: 4vw;
+  text-align: center;
+  font-size: 4.09vw;
+}
+
+/* ================= RIGHT ================= */
+
+.cart-right {
+  margin-left: 6.82vw;
+  padding-top: 1.2vw;
+  position: sticky;
+  top: 1.75vw;       /* отступ сверху — под шапку/воздух */
+  align-self: start;
+}
+
+.right-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+
+.right-title {
+  margin: 0;
+  font-size: 5.45vw; 
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.pay-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8125vw; /* ~13px */
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+/* базовая кнопка как кнопка */
+.pay-btn.pay-anim {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  line-height: 1;
+  transform: translate(-19vw, 170vw);
+}
+
+/* hover анимации стрелок */
+.pay-btn.pay-anim:hover .pay-arrow-1 {
+  transform: translate(120%, -120%);
+  opacity: 0;
+}
+
+.pay-btn.pay-anim:hover .pay-arrow-2 {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.pay-btn.pay-anim:hover .pay-text {
+  transform: translateX(0);
+}
+
+/* "выезжающий" текст слева */
+.pay-text-wrap {
+  display: inline-flex;
+  position: absolute;
+  right: calc(100% - 0.8vw); /* как у тебя */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pay-text {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.25vw 4vw 0.25vw 0.7vw;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 2vw 0 0 2vw;
+  font-family: var(--montserrat);
+  font-size: 3.64vw;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 114.2%;
+  color: #020202;
+
+  transform: translateX(100%);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* круг справа */
+.pay-circle {
+  width: 6.14vw;
+  height: 6.14vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #2D2D2D;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+/* стрелки внутри круга */
+.pay-circle .pay-arrow {
+  position: absolute;
+  width: 2.89vw;
+  height: auto;
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+.pay-arrow-1 {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.pay-arrow-2 {
+  transform: translate(-120%, 120%);
+  opacity: 0;
+}
+
+/* accessibility: фокус */
+.pay-btn.pay-anim:focus-visible {
+  outline: 0.125vw solid rgba(0,0,0,0.35);
+  outline-offset: 0.25vw;
+  border-radius: 2vw;
+}
+
+
+.pay-icon {
+  width: 0.8vw;
+  height: 0.8vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+/* ================= BLOCKS ================= */
+
+.right-block {
+  margin-top: 8.13vw;
+}
+
+.right-subtitle {
+  font-size: 3.64vw;
+  font-weight: 500;
+  margin-bottom: 5.91vw;
+  letter-spacing: -0.02em;
+}
+
+/* ================= TABS ================= */
+
+.tabs {
+  display: flex;
+  gap: 1.125vw;
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 3.18vw;
+  color: #727272;
+  padding: 0.375vw 0;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  transition: color 0.22s ease;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2vw;             
+  width: 100%;
+  height: 0.0625vw;            
+  background: currentColor;    
+
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+
+  /* "появление слева направо + тягучесть в конце" */
+  transition:
+    transform 600ms cubic-bezier(0.22, 1.35, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.tab.is-active {
+  color: #000000;
+}
+
+/* активная линия */
+.tab.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* hover — можно очень мягко подсказать */
+.tab:hover {
+  color: #111111;
+}
+
+
+/* ================= FIELDS ================= */
+
+.field {
+  position: relative;
+  display: block;
+  margin-top: 5.68vw;
+  --field-w: clamp(240px, 22vw, 340px);
+  --line-h: 0.0625vw; 
+  --line: #ededed;
+}
+
+.field-input,
+.field-textarea {
+  width: 84.55vw;
+  border: none;
+  outline: none;
+
+  padding: 0.95vw 0 3.5vw 1.59vw;
+  font-family: var(--montserrat);
+  font-size: 3.18vw;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #CACACA 0%,
+    #CACACA 82%,
+    rgba(237, 237, 237, 0) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% var(--line-h);
+  background-position: left bottom;
+}
+
+.field-textarea {
+  resize: none;
+        padding: 0.95vw 0 0vw;
+        min-height: unset;
+        line-height: 100%;    
+}
+
+/* Текст-подпись внутри поля  */
+.field-label {
+  padding-left: 1.59vw;
+  position: absolute;
+  left: 0;
+  top: 0.95vw;
+  font-size: 3.18vw;
+  color: #727272;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 160ms ease;
+  font-weight: 300;
+}
+
+/* Показываем подпись, только когда поле пустое */
+.field-input:placeholder-shown + .field-label,
+.field-textarea:placeholder-shown + .field-label {
+  opacity: 1;
+}
+
+/* Если пользователь печатает — подпись исчезает  */
+.field-input:not(:placeholder-shown) + .field-label,
+.field-textarea:not(:placeholder-shown) + .field-label {
+  opacity: 0;
+}
+
+
+}
