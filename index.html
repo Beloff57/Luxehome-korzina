@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxehome - korzina</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <main class="cart-page">
+    <div class="cart-grid">
+
+      <!-- LEFT -->
+      <section class="cart-left" aria-label="Корзина">
+        <header class="cart-header">
+          <h1 class="cart-title">Корзина</h1>
+
+          <button class="cart-clear" type="button" data-cart-clear>
+            Очистить корзину
+          </button>
+
+          <div class="cart-total" aria-label="Сумма заказа" data-cart-total>0 ₽</div>
+        </header>
+
+        <div class="cart-divider"></div>
+
+        <!-- LIST -->
+        <div class="cart-list" data-cart-list>
+          <!-- JS вставит items сюда -->
+        </div>
+
+        
+      </section>
+
+      <!-- RIGHT -->
+<aside class="cart-right" aria-label="Ваши данные">
+  <form class="checkout-form" id="checkoutForm" novalidate>
+    <div class="right-head">
+      <h2 class="right-title">Ваши данные</h2>
+      <button class="pay-btn pay-anim" type="submit">
+        <span class="pay-text-wrap">
+          <span class="pay-text">Перейти к оплате</span>
+        </span>
+        <span class="pay-circle" aria-hidden="true">
+          <img src="images/Arrow 54.svg" alt="" class="pay-arrow pay-arrow-1">
+          <img src="images/Arrow 54inv.svg" alt="" class="pay-arrow pay-arrow-2">
+        </span>
+      </button>
+    </div>
+    <div class="right-block">
+      <div class="right-subtitle">Варианты доставки</div>
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" type="button" role="tab" aria-selected="true" data-delivery="address">
+          До адреса
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-delivery="pickup">
+          До пункта выдачи
+        </button>
+      </div>
+      <input type="hidden" name="delivery" id="deliveryType" value="address">
+    </div>
+    <div class="right-block" id="addressBlock">
+      <div class="right-subtitle">Адрес</div>
+      <label class="field">
+        <input class="field-input" type="text" name="city" placeholder=" " autocomplete="address-level2" required />
+        <span class="field-label">Населенный пункт</span>
+      </label>
+      <label class="field">
+        <input class="field-input" type="text" name="street" placeholder=" " autocomplete="street-address" required />
+        <span class="field-label">Улица, дом</span>
+      </label>
+    </div>
+    <div class="right-block">
+      <div class="right-subtitle">Контактная информация</div>
+      <label class="field">
+        <input class="field-input" type="text" name="fio" placeholder=" " autocomplete="name" required />
+        <span class="field-label">Ф.И.О</span>
+      </label>
+      <label class="field">
+        <input class="field-input" type="tel" name="phone" placeholder=" " autocomplete="tel" required />
+        <span class="field-label">Телефон</span>
+      </label>
+      <label class="field">
+        <input class="field-input" type="email" name="email" placeholder=" " autocomplete="email" required />
+        <span class="field-label">Почта</span>
+      </label>
+    </div>
+    <div class="right-block">
+      <div class="right-subtitle">Дополнительно</div>
+      <label class="field">
+        <textarea class="field-textarea" name="comment" rows="3" placeholder=" "></textarea>
+        <span class="field-label">Комментарий к заказу</span>
+      </label>
+    </div>
+  </form>
+</aside>
+    </div>
+  </main>
+
+<script>
+// js/cart.js
+
+const STORAGE_KEY = "luxehome_cart";
+
+/* ================= DEMO DATA ================= */
+
+const demoCart = [
+  {
+    id: "ava-6008-1",
+    title: "Люстра Ava 600/8 Chrome",
+    price: 172500,
+    image: "images/39 5.svg",
+    spec: "Диаметр: 40. Высота: 60. Источников света: 8",
+    quantity: 1
+  },
+  {
+    id: "ava-6008-2",
+    title: "Люстра Ava 600/8 Chrome",
+    price: 172500,
+    image: "images/39 5.svg",
+    spec: "Диаметр: 40. Высота: 60. Источников света: 8",
+    quantity: 1
+  },
+  {
+    id: "ava-6008-3",
+    title: "Люстра Ava 600/8 Chrome",
+    price: 172500,
+    image: "images/39 5.svg",
+    spec: "Диаметр: 40. Высота: 60. Источников света: 8",
+    quantity: 1
+  }
+];
+
+/* ================= CART UTILS ================= */
+
+function formatRUB(value){
+  const s = Math.round(value).toString();
+  const parts = [];
+  for (let i = s.length; i > 0; i -= 3) {
+    parts.unshift(s.slice(Math.max(0, i - 3), i));
+  }
+  return parts.join(".") + " ₽";
+}
+
+function getCart(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch { return null; }
+}
+
+function setCart(items){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+}
+
+function ensureCart(){
+  const cart = getCart();
+  const isEmpty = !Array.isArray(cart) || cart.length === 0;
+  if (isEmpty){
+    setCart(demoCart);
+    return demoCart;
+  }
+  return cart;
+}
+
+function calcTotal(items){
+  return items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+}
+
+/* ================= RENDER CART ================= */
+
+function renderCart(){
+  const listEl = document.querySelector("[data-cart-list]");
+  const totalEl = document.querySelector("[data-cart-total]");
+  if (!listEl || !totalEl) return;
+
+  const items = ensureCart();
+
+  if (!items.length){
+    listEl.innerHTML = `<div style="padding:24px 0; color:#B8B8B8;">Корзина пуста</div>`;
+    totalEl.textContent = formatRUB(0);
+    return;
+  }
+
+  listEl.innerHTML = items.map(item => `
+    <article class="cart-item" data-id="${item.id}">
+      <div class="cart-item-inner">
+        <img class="item-img" src="${item.image}" alt="${item.title}">
+
+        <div>
+          <div class="item-top">
+            <h3 class="item-title">${item.title}</h3>
+          </div>
+
+          <div class="item-mid">
+            <div class="item-spec-wrap">
+              <div class="item-spec">${item.spec || ""}</div>
+              <button class="item-action" type="button">
+                <img src="images/Arrow 55.svg" alt="">
+              </button>
+            </div>
+          </div>
+
+          <div class="item-bottom">
+            <div class="item-price">
+              ${formatRUB(item.price * item.quantity)}
+            </div>
+
+            <div class="item-qty">
+              <button type="button" data-minus>−</button>
+              <span>${item.quantity}</span>
+              <button type="button" data-plus>+</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="item-remove" type="button">
+          <img src="images/delete-icon.svg" alt="">
+        </button>
+      </div>
+    </article>
+  `).join("");
+
+  totalEl.textContent = formatRUB(calcTotal(items));
+
+  listEl.querySelectorAll(".cart-item").forEach(row => {
+    const id = row.dataset.id;
+    const minus = row.querySelector("[data-minus]");
+    const plus = row.querySelector("[data-plus]");
+    const remove = row.querySelector(".item-remove");
+
+    minus.addEventListener("click", () => {
+      const cart = getCart();
+      const item = cart.find(i => i.id === id);
+      if (item && item.quantity > 1) {
+        item.quantity--;
+        setCart(cart);
+        renderCart();
+      }
+    });
+
+    plus.addEventListener("click", () => {
+      const cart = getCart();
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.quantity++;
+        setCart(cart);
+        renderCart();
+      }
+    });
+
+    remove.addEventListener("click", () => {
+      const cart = getCart();
+      setCart(cart.filter(i => i.id !== id));
+      renderCart();
+    });
+  });
+}
+
+/* ================= FORM LOGIC (ВОЗВРАЩЕНО) ================= */
+
+function bindCheckoutForm(){
+  const form = document.getElementById("checkoutForm");
+  if (!form) return;
+
+  const deliveryInput = document.getElementById("deliveryType");
+  const addressBlock = document.getElementById("addressBlock");
+  const city = form.querySelector('[name="city"]');
+  const street = form.querySelector('[name="street"]');
+
+  function setDelivery(type){
+    deliveryInput.value = type;
+    const isAddress = type === "address";
+
+    if (city) city.required = isAddress;
+    if (street) street.required = isAddress;
+    if (addressBlock) addressBlock.style.display = isAddress ? "" : "none";
+  }
+
+  form.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      form.querySelectorAll(".tab").forEach(x => {
+        x.classList.remove("is-active");
+        x.setAttribute("aria-selected", "false");
+      });
+      btn.classList.add("is-active");
+      btn.setAttribute("aria-selected", "true");
+      setDelivery(btn.dataset.delivery || "address");
+    });
+  });
+
+  setDelivery(deliveryInput.value || "address");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    if (!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    localStorage.setItem("luxehome_checkout", JSON.stringify(data));
+
+    alert("Форма валидна. Далее — оплата.");
+  });
+}
+
+/* ================= UI ================= */
+
+function bindUI(){
+  const clearBtn = document.querySelector("[data-cart-clear]");
+  if (clearBtn){
+    clearBtn.addEventListener("click", () => {
+      setCart([]);
+      renderCart();
+    });
+  }
+}
+
+/* ================= INIT ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  bindUI();
+  bindCheckoutForm();
+  renderCart();
+});
+</script>
+
+</body>
+</html>
