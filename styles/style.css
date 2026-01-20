@@ -43,6 +43,7 @@ body {
 }
 
 .cart-clear {
+  font-family: var(--montserrat);
   background: transparent;
   border: none;
   font-size: 1vw; 
@@ -63,7 +64,7 @@ body {
 
 .cart-divider,
 .cart-footer-divider {
-  height: 0.0625vw; /* 1px */
+  height: 0.11vw;
   background: #ededed;
   margin-top: 1.125vw;
 }
@@ -118,7 +119,7 @@ body {
 .item-price {
   width: 11vw;
   margin-top: 0vw;
-  font-size: 1.25vw;
+  font-size: 1.5vw;
   color: #b8b8b8;
 }
 
@@ -204,24 +205,24 @@ body {
 .item-qty {
   display: inline-flex;
   align-items: center;
-  gap: 0.5vw;
+  gap: 1.44vw;
   margin-top: 0vw;
   margin-left: 0vw;
 }
 
 .item-qty button {
-  width: 0;
-  height: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.13vw;
-  line-height: 1;
-  font-family: var(--montserrat);
-  font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 1.13vw;
+    height: 1.13vw;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 2.8vw;
+    line-height: 1;
+    font-family: var(--montserrat);
+    font-weight: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -290,35 +291,24 @@ body {
   opacity: 1;
 }
 
-.pay-btn.pay-anim:hover .pay-text {
-  transform: translateX(0);
-}
-
 /* "выезжающий" текст слева */
 .pay-text-wrap {
   display: inline-flex;
-  position: absolute;
-  right: calc(100% - 0.8vw); /* как у тебя */
-  overflow: hidden;
+  position: static;
+  overflow: visible;
   white-space: nowrap;
 }
 
 .pay-text {
   box-sizing: border-box;
   display: inline-block;
-  padding: 0.25vw 1.7vw 0.25vw 0.7vw;
-  background: #FFFFFF;
-  border: 1px solid #2D2D2D;
-  border-radius: 2vw 0 0 2vw;
+  padding: 0.25vw 0.6vw 0.25vw 0.7vw;
   font-family: var(--montserrat);
   font-size: 1vw;
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 114.2%;
   color: #020202;
-
-  transform: translateX(100%);
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* круг справа */
@@ -402,13 +392,14 @@ body {
 }
 
 .tab {
+  font-family: var(--montserrat);
   border: none;
   background: transparent;
   cursor: pointer;
   font-size: 0.88vw;
   color: #727272;
   padding: 0.375vw 0;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   display: inline-block;
   transition: color 0.22s ease;
@@ -418,16 +409,13 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -0.2vw;             
+  bottom: 0.4vw;             
   width: 100%;
   height: 0.0625vw;            
   background: currentColor;    
-
   transform-origin: left;
   transform: scaleX(0);
   opacity: 0;
-
-  /* "появление слева направо + тягучесть в конце" */
   transition:
     transform 600ms cubic-bezier(0.22, 1.35, 0.36, 1),
     opacity 180ms ease;
@@ -435,6 +423,7 @@ body {
 
 .tab.is-active {
   color: #000000;
+  font-weight: 400;
 }
 
 /* активная линия */
@@ -465,10 +454,10 @@ body {
   width: 20vw;
   border: none;
   outline: none;
-
   padding: 0.95vw 0 0.75vw 0.44vw;
   font-family: var(--montserrat);
   font-size: 0.88vw;
+  line-height: 114.2%;
   background-color: transparent;
   background-image: linear-gradient(
     to right,
@@ -483,9 +472,9 @@ body {
 
 .field-textarea {
   resize: none;                 /* нельзя менять размер */
-  padding: 0.95vw 0 0.75vw;     /* ТОЧНО как у input */
+  padding: 0.95vw 0 0.75vw 0.44vw;     /* ТОЧНО как у input */
   min-height: unset;
-  line-height: 38%;     
+  line-height: normal;     
 }
 
 /* Текст-подпись внутри поля (как placeholder), но управляемый */
@@ -494,7 +483,8 @@ body {
   position: absolute;
   left: 0;
   top: 0.95vw;
-  font-size: 0.75vw;
+  font-size: 0.88vw;
+  letter-spacing: -0.04em;
   color: #727272;
   pointer-events: none;
   opacity: 0;
@@ -539,7 +529,7 @@ body {
   align-items: flex-end;
   justify-content: space-between;
   gap: 2vw;
-  margin-left: 2.13vw;
+  margin-left: 4.09vw;
   margin-bottom: 3.44vw;
 }
 
@@ -594,14 +584,14 @@ body {
 .cart-item{
   display: block;
   padding: 3.64vw 0;                 
-  border-bottom: 0.0625vw solid #CACACA; 
+  border-bottom: 0.11vw solid #CACACA; 
 }
 
 .cart-item-inner{
   display: grid;
   grid-template-columns: 27.05vw 1fr 4.32vw;
   gap: 8.18vw;
-  padding-left: 2.13vw;
+  padding-left: 4.09vw;
 }
 
 
@@ -633,8 +623,7 @@ body {
 
 .item-bottom {
   margin-top: 4vw;
-        display: flex;
-        justify-content: space-between;
+  display: flex;
 }
 
 .item-mid {
@@ -652,7 +641,7 @@ body {
   font-size: 2.5vw;
   font-weight: 500;
   padding-bottom: 0.625vw;
-
+  line-height: 114.2%;
   position: relative;
   display: inline-block;
   width: 45vw;
@@ -699,7 +688,7 @@ body {
   cursor: pointer;
   opacity: 0.6;
   font-size: 1vw;
-  transform: translateX(-8vw);
+  transform: translateX(-10vw);
 }
 
 .item-remove img {
@@ -714,32 +703,32 @@ body {
 
 .item-qty {
   display: inline-flex;
-  align-items: center;
-  gap: 2vw;
-  margin-top: 0vw;
-  margin-left: 3.25vw;
+        align-items: center;
+        gap: 3.5vw;
+        margin-top: 0vw;
+        margin-left: 2.8vw;
 }
 
 .item-qty button {
-  width: 0;
-  height: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 4.09vw;
-  line-height: 1;
-  font-family: var(--montserrat);
-  font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 4.09vw;
+        height: 4.09vw;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-size: 11.09vw;
+        line-height: 1;
+        font-family: var(--montserrat);
+        font-weight: 100;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 }
 
 
 .item-qty span {
   width: 4vw;
   text-align: center;
-  font-size: 4.09vw;
+  font-size: 2.95vw;
 }
 
 /* ================= RIGHT ================= */
@@ -787,7 +776,7 @@ body {
   align-items: center;
   position: relative;
   line-height: 1;
-  transform: translate(-19vw, 170vw);
+  transform: translate(-21vw, 170vw);
 }
 
 /* hover анимации стрелок */
@@ -801,16 +790,11 @@ body {
   opacity: 1;
 }
 
-.pay-btn.pay-anim:hover .pay-text {
-  transform: translateX(0);
-}
 
-/* "выезжающий" текст слева */
 .pay-text-wrap {
   display: inline-flex;
-  position: absolute;
-  right: calc(100% - 0.8vw); /* как у тебя */
-  overflow: hidden;
+  position: static;
+  overflow: visible;
   white-space: nowrap;
 }
 
@@ -827,9 +811,6 @@ body {
   letter-spacing: -0.03em;
   line-height: 114.2%;
   color: #020202;
-
-  transform: translateX(100%);
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* круг справа */
@@ -901,7 +882,7 @@ body {
 .right-subtitle {
   font-size: 3.64vw;
   font-weight: 500;
-  margin-bottom: 5.91vw;
+  margin-bottom: 4.77vw;
   letter-spacing: -0.02em;
 }
 
@@ -909,7 +890,7 @@ body {
 
 .tabs {
   display: flex;
-  gap: 1.125vw;
+  gap: 7vw;
 }
 
 .tab {
@@ -929,9 +910,9 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -0.2vw;             
+  bottom: 0.4vw;             
   width: 100%;
-  height: 0.0625vw;            
+  height: 0.23vw;            
   background: currentColor;    
 
   transform-origin: left;
@@ -994,9 +975,8 @@ body {
 
 .field-textarea {
   resize: none;
-        padding: 0.95vw 0 0vw;
         min-height: unset;
-        line-height: 100%;    
+        line-height: normal;    
 }
 
 /* Текст-подпись внутри поля  */
