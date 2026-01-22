@@ -251,7 +251,7 @@ body {
 
 .right-title {
   margin: 0;
-  font-size: 1.5vw; 
+  font-size: 1.73vw; 
   font-weight: 500;
   letter-spacing: -0.03em;
 }
@@ -305,7 +305,7 @@ body {
   display: inline-block;
   padding: 0.25vw 0.6vw 0.25vw 0.7vw;
   font-family: var(--montserrat);
-  font-size: 1vw;
+  font-size: 1.15vw;
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 114.2%;
@@ -379,9 +379,9 @@ body {
 }
 
 .right-subtitle {
-  font-size: 1vw;
+  font-size: 1.15vw;
   font-weight: 500;
-  margin-bottom: 0.75vw;
+  margin-bottom: 0.86vw;
   letter-spacing: -0.02em;
 }
 
@@ -389,7 +389,7 @@ body {
 
 .tabs {
   display: flex;
-  gap: 1.125vw;
+  gap: 1.29vw;
 }
 
 .tab {
@@ -397,7 +397,7 @@ body {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: 0.88vw;
+  font-size: 1.01vw;
   color: #727272;
   padding: 0.375vw 0;
   font-weight: 300;
@@ -455,9 +455,9 @@ body {
   width: 20vw;
   border: none;
   outline: none;
-  padding: 0.95vw 0 0.75vw 0.44vw;
+  padding: 0.95vw 0 0.86vw 0.5vw;
   font-family: var(--montserrat);
-  font-size: 0.88vw;
+  font-size: 1.01vw;
   line-height: 114.2%;
   background-color: transparent;
   background-image: linear-gradient(
@@ -484,7 +484,7 @@ body {
   position: absolute;
   left: 0;
   top: 0.95vw;
-  font-size: 0.88vw;
+  font-size: 1.01vw;
   letter-spacing: -0.04em;
   color: #727272;
   pointer-events: none;
@@ -778,7 +778,7 @@ body {
   align-items: center;
   position: relative;
   line-height: 1;
-  transform: translate(-21vw, 169vw);
+  transform: translate(-21.5vw, 162vw);
 }
 
 /* hover анимации стрелок */
@@ -878,7 +878,7 @@ body {
 /* ================= BLOCKS ================= */
 
 .right-block {
-  margin-top: 9.55vw;
+  margin-top: 8.8vw;
 }
 
 .right-subtitle {
@@ -892,7 +892,8 @@ body {
 
 .tabs {
   display: flex;
-  gap: 7vw;
+  gap: 8vw;
+  margin-bottom: 11vw;
 }
 
 .tab {
@@ -948,7 +949,7 @@ body {
 .field {
   position: relative;
   display: block;
-  margin-top: 5.68vw;
+  margin-top: 4.68vw;
   --field-w: clamp(240px, 22vw, 340px);
   --line-h: 0.0625vw; 
   --line: #ededed;
