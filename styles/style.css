@@ -236,7 +236,7 @@ body {
 /* ================= RIGHT ================= */
 
 .cart-right {
-  padding-top: 1.2vw;
+  padding-top: 0.8vw;
   position: sticky;
   top: 1.75vw;       /* отступ сверху — под шапку/воздух */
   align-self: start;
@@ -639,10 +639,10 @@ body {
 
 
 .item-spec {
-  font-size: 2.5vw;
+  font-size: 2.7vw;
   font-weight: 400;
   padding-bottom: 2.27vw;
-  line-height: 114.2%;
+  line-height: 129.2%;
   position: relative;
   display: inline-block;
   width: 45vw;
@@ -752,9 +752,10 @@ body {
 
 .right-title {
   margin: 0;
-  font-size: 5.45vw; 
+  font-size: 6.55vw; 
   font-weight: 500;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .pay-btn {
@@ -778,7 +779,7 @@ body {
   align-items: center;
   position: relative;
   line-height: 1;
-  transform: translate(-21.5vw, 162vw);
+  transform: translate(-28vw, 195.05vw);
 }
 
 /* hover анимации стрелок */
@@ -808,7 +809,7 @@ body {
   border: none;
   border-radius: 2vw 0 0 2vw;
   font-family: var(--montserrat);
-  font-size: 3.64vw;
+  font-size: 4.36vw;
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 114.2%;
@@ -817,8 +818,8 @@ body {
 
 /* круг справа */
 .pay-circle {
-  width: 6.14vw;
-  height: 6.14vw;
+  width: 7.36vw;
+  height: 7.36vw;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -835,7 +836,7 @@ body {
 /* стрелки внутри круга */
 .pay-circle .pay-arrow {
   position: absolute;
-  width: 2.89vw;
+  width: 3.46vw;
   height: auto;
   transition:
     transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
@@ -878,13 +879,13 @@ body {
 /* ================= BLOCKS ================= */
 
 .right-block {
-  margin-top: 8.8vw;
+  margin-top: 10.56vw;
 }
 
 .right-subtitle {
-  font-size: 3.64vw;
+  font-size: 4.36vw;
   font-weight: 500;
-  margin-bottom: 4.77vw;
+  margin-bottom: 5.73vw;
   letter-spacing: -0.02em;
 }
 
@@ -892,15 +893,15 @@ body {
 
 .tabs {
   display: flex;
-  gap: 8vw;
-  margin-bottom: 11vw;
+  gap: 9.6vw;
+  margin-bottom: 13.2vw;
 }
 
 .tab {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: 3.18vw;
+  font-size: 3.82vw;
   color: #727272;
   padding: 0.375vw 0;
   font-weight: 300;
@@ -949,7 +950,7 @@ body {
 .field {
   position: relative;
   display: block;
-  margin-top: 4.68vw;
+  margin-top: 5.62vw;
   --field-w: clamp(240px, 22vw, 340px);
   --line-h: 0.0625vw; 
   --line: #ededed;
@@ -961,9 +962,9 @@ body {
   border: none;
   outline: none;
 
-  padding: 0.95vw 0 3.5vw 1.59vw;
+  padding: 0.95vw 0 4.2vw 1.91vw;
   font-family: var(--montserrat);
-  font-size: 3.18vw;
+  font-size: 3.82vw;
   background-color: transparent;
   background-image: linear-gradient(
     to right,
@@ -984,11 +985,11 @@ body {
 
 /* Текст-подпись внутри поля  */
 .field-label {
-  padding-left: 1.59vw;
+  padding-left: 1.91vw;
   position: absolute;
   left: 0;
   top: 0.95vw;
-  font-size: 3.18vw;
+  font-size: 3.82vw;
   color: #727272;
   pointer-events: none;
   opacity: 0;
