@@ -475,7 +475,8 @@ body {
   resize: none;                 /* нельзя менять размер */
   padding: 0.95vw 0 0.75vw 0.44vw;     /* ТОЧНО как у input */
   min-height: unset;
-  line-height: normal;     
+  line-height: 1.142; 
+  box-sizing: border-box;    
 }
 
 /* Текст-подпись внутри поля (как placeholder), но управляемый */
